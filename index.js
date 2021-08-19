@@ -1,8 +1,10 @@
 const items = document.querySelector(".items");
 const input = document.querySelector(".footer__input");
 const addBtn = document.querySelector(".footer__btn");
+const addForm = document.querySelector(".footer__form");
 
-function onAdd() {
+function onAdd(e) {
+  e.preventDefault();
   const text = input.value;
   console.log(text);
   if (text === "") {
@@ -43,6 +45,5 @@ function createItem(text) {
   return itemRow;
 }
 
-addBtn.addEventListener("click", () => {
-  onAdd();
-});
+addBtn.addEventListener("click", onAdd);
+addForm.addEventListener("submit", onAdd);
